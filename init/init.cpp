@@ -696,6 +696,9 @@ int SecondStageMain(int argc, char** argv) {
     // Will handle EPIPE at the time of write by checking the errno
     signal(SIGPIPE, SIG_IGN);
 
+    // Will handle EPIPE at the time of write by checking the errno
+    signal(SIGPIPE, SIG_IGN);
+
     // Set init and its forked children's oom_adj.
     if (auto result =
                 WriteFile("/proc/1/oom_score_adj", StringPrintf("%d", DEFAULT_OOM_SCORE_ADJUST));
